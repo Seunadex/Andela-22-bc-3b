@@ -1,4 +1,4 @@
-# Andela-22-bc-3b EMLPOYEE SALARY CALCULATOR
+# Andela-22-bc-3b EMPLOYEE SALARY CALCULATOR
 A project to calculate the salaries of different types of employees based on their respective levels.
 
 ## DESCRIPTION
@@ -27,11 +27,6 @@ This application helps employees calculate their salary based on:
 * JQuery.
 
 TO GET STARTED
-
-Please enter your Employee ID.
-
-Please click 'EMPLOYEE SALARY CALCULATOR'.
-
 Kindly select your employee type.
 
 Select your employee level.
