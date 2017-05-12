@@ -3,28 +3,183 @@
 
 <head>
     <title>Salary Calculator</title>
+
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <style type="text/css">
         #container {
             background-image: url("background.jpg");
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
             font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        .first {
+            width: 350px;
+            margin: 2em auto;
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 1em;
+        }
+        
+        .second {
+            width: 300px;
+            margin: 2em auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 1em;
+        }
+        
+        .third {
+            width: 600px;
+            margin: 1em auto;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 1em;
+        }
+        
+        .calculate {
+            padding-right: 20px;
+            padding-left: 18px;
+            margin-left: 160px;
+            height: 30px;
+            background-color: grey;
+            color: #fff;
+            border: none;
+            box-shadow: 2px 1px 2px black;
+          
+        }
+        .calculate:hover {
+            color: black;
+            background-color: #ffc;
+        }
+        
+        .employee {
+            padding-left: 20px;
+        }
+        
+        #position {
+            margin-left: 100px;
+            width: 250px;
+        }
+        
+        #level {
+            padding-left: 7px;
+            margin-left: 23px;
+            margin-right: 29px;
+            width: 140px;
+        }
+        button {
+          border: none;
+          background-color: none;
+        }
+
+        #type, #level {
+            height: 30px !important;
+            background-color: grey;
+            color: #ffc;
+        }
+        
+        #type {
+            padding-left: 10px;
+            margin-left: 20px;
+            width: 140px;
+        }
+        
+        #calculator {
+            height: 80px;
+            margin-left: 180px;
+        }
+        
+        #submitbutton {
+            padding-left: 100px;
+            margin-left: 330px;
+            margin-top: 30px;
+        }
+        input[type=submit] {
+
+        }
+        
+        
+        a:link,
+        a:visited {
+            color: #38488f;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 700px) {
+            body {
+                background-color: #fff;
+            }
+            div {
+                width: auto;
+                margin: 0 auto;
+                border-radius: 0;
+                padding: 1em;
+            }
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+        /* Modal Content/Box */
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            /* Could be more or less, depending on screen size */
+            
+        }
+        /* The Close Button */
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body id="container" onload="init()">
 
-    <div class="third">
+    <div class="third" style="text-align:center; font-size:50px;">
         Salary Calculator
     </div>
 
     <div class="first">
-        <label class="employee">Employee Position: </label>
+        <p id="employee"><strong>Employee Position:</strong>
             <select id="type">
             <option value="Select">Select Position</option>
             <option value="Director">Director</option>
@@ -33,22 +188,24 @@
             <option value="Associate">Associate</option>
             <option value="Intern">Intern</option>
             </select>
-       </br>
-        <label class="employee elevel">Employee Level: </label>
-            <select id="level">
-             <option value="Select">Select Level</option>
-             <option value="Level One">Level One</option>
-             <option value="Level Two">Level Two</option>
-             <option value="Level Three">Level Three</option>
-             <option value="Level Four">Level Four</option>
-             <option value="Level Five">Level Five</option>
-            </select>
+        </p>
 
-      
+        <p class="employee"><strong>Employee Level:</strong>
+            <select id="level">
+            <option value="Select">Select Level</option>
+            <option value="Level One">Level One</option>
+            <option value="Level Two">Level Two</option>
+            <option value="Level Three">Level Three</option>
+            <option value="Level Four">Level Four</option>
+            <option value="Level Five">Level Five</option>
+            </select>
+        </p>
+
+
         <br/>
 
-        <input onClick="calculateSalary()" type="submit" value="Calculate" />
-        <button id="myBtn">View Report</button>
+        <!--input onClick="calculateSalary()" type="submit" value="Calculate" /-->
+        <button id="myBtn" class="calculate"><input onClick="calculateSalary()" type="submit" value="Calculate" /></button>
     </div>
 
     <!-- Trigger/Open The Modal >
@@ -100,6 +257,31 @@
 
     </div>
 
+    <!--     <div id="ta" class="second">
+        <table>
+            <tr><th>Position</th>
+                <th>Level</th>
+                <th>Basic Salary</th>
+                <th>Furniture Allowance</th>
+                <th>Leave Allowance</th>
+                <th>Medical Allowance</th>
+                <th>Tax</th>                
+                <th>Gross Salary </th>
+            </tr>
+            <tr>
+                <td id="typee"> </td>
+                <td id="levele"> </td>
+                <td id="bs"> </td>
+                <td id="fa"> </td>
+                <td id="lb"> </td>
+
+                <td id="ma"> </td>
+                <td id="tax"> </td>
+                <td id="gross"> </td>
+            </tr>
+            
+        </table>
+    </div> -->
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/dashboard.js"></script>
