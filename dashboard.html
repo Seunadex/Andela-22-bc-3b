@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Salary Calculator</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style type="text/css">
+        #container {
+            background-image: url("background.jpg");
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body id="container" onload="init()">
+
+    <div class="third">
+        Salary Calculator
+    </div>
+
+    <div class="first">
+        <label class="employee">Employee Position: </label>
+            <select id="type">
+            <option value="Select">Select Position</option>
+            <option value="Director">Director</option>
+            <option value="Executive">Executive</option>
+            <option value="Manager">Manager</option>
+            <option value="Associate">Associate</option>
+            <option value="Intern">Intern</option>
+            </select>
+       </br>
+        <label class="employee elevel">Employee Level: </label>
+            <select id="level">
+             <option value="Select">Select Level</option>
+             <option value="Level One">Level One</option>
+             <option value="Level Two">Level Two</option>
+             <option value="Level Three">Level Three</option>
+             <option value="Level Four">Level Four</option>
+             <option value="Level Five">Level Five</option>
+            </select>
+
+      
+        <br/>
+
+        <input onClick="calculateSalary()" type="submit" value="Calculate" />
+        <button id="myBtn">View Report</button>
+    </div>
+
+    <!-- Trigger/Open The Modal >
+    <button id="myBtn">Open Modal</button -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="ta" class="second">
+
+                <div>
+                    <strong>Position: </strong><span id="typee"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Level: </strong><span id="levele"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Basic Salary: </strong><span id="bs"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Furniture Allowance: </strong><span id="fa"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Leave Allowance: </strong><span id="lb"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Medical Allowance: </strong><span id="ma"></span>
+                </div>
+                <br>
+                <div>
+                    <strong>Tax: </strong><span id="tax"></span>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <strong>Gross Salary: </strong><span id="gross"></span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>
